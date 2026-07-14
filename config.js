@@ -9,7 +9,7 @@ const CONFIG = {
   organizador: Cláudio, // quem está organizando (aparece no texto do convite)
   dataFesta: "Sexta, 31 de julho de 2026", // ajuste para a data real da festa
   horaFesta: "18h",                          // ajuste para o horário real
-  localFesta: "Endereço", // ajuste para o endereço real
+  localFesta: "Endereço:Rua João Monlevade, 535 - Jardim Leblon - BH", // ajuste para o endereço real
   linkLocalizacao: "https://maps.app.goo.gl/U3RyCdrEFL8vtBnm8", // opcional: cole aqui um link do Google Maps, ex: "https://maps.app.goo.gl/xxxxx"
   prazoConfirmacao: "18/07",
 
