@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   envelopeWrap.addEventListener("click", openEnvelope);
-  envelopeWrap.setAttribute("role", "button");
-  envelopeWrap.setAttribute("tabindex", "0");
   envelopeWrap.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();

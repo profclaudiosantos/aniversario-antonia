@@ -95,16 +95,25 @@ html, body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   padding: 32px 16px 64px;
+}
+
+/* envelope and invite share the same grid cell so each one is centered
+   independently, instead of sitting side by side pushing each other off
+   center (the invite keeps its layout size even while invisible) */
+.envelope-wrap,
+.invite {
+  grid-area: 1 / 1;
 }
 
 /* ==========================================================
    ENVELOPE (signature opening moment)
    ========================================================== */
 .envelope-wrap {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,18 +207,22 @@ html, body {
    INVITE CARD
    ========================================================== */
 .invite {
+  position: relative;
+  z-index: 1;
   width: min(560px, 94vw);
   background: var(--paper);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: 40px 32px 36px;
   opacity: 0;
+  pointer-events: none;
   transform: translateY(24px) scale(0.98);
   transition: opacity 0.7s ease 0.15s, transform 0.7s cubic-bezier(.2,.8,.2,1) 0.15s;
 }
 
 .invite.is-visible {
   opacity: 1;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
