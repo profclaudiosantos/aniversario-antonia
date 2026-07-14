@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmação de Presença — Aniversário da Antônia 🎂</title>
+<meta name="description" content="Confirme sua presença no aniversário de 3 anos da Antônia">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- floating decorations (ambient, decorative only) -->
+<div class="sky" aria-hidden="true">
+  <span class="balloon b1">🎈</span>
+  <span class="balloon b2">🎈</span>
+  <span class="balloon b3">🎈</span>
+  <span class="balloon b4">🎈</span>
+  <span class="balloon b5">🎈</span>
+  <span class="confetti c1">✦</span>
+  <span class="confetti c2">✦</span>
+  <span class="confetti c3">✦</span>
+  <span class="confetti c4">✦</span>
+</div>
+
+<main class="stage">
+
+  <!-- ENVELOPE INTRO -->
+  <section class="envelope-wrap" id="envelopeWrap">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-card">
+        <span class="envelope-seal">🎂</span>
+      </div>
+      <div class="envelope-front"></div>
+    </div>
+    <p class="envelope-hint">toque para abrir o convite</p>
+  </section>
+
+  <!-- INVITE CARD -->
+  <section class="invite" id="inviteCard">
+
+    <header class="invite-header">
+      <div class="candle" aria-hidden="true">
+        <div class="flame"></div>
+        <div class="wick"></div>
+        <div class="wax">3</div>
+      </div>
+      <p class="eyebrow">é hora de comemorar</p>
+      <h1 class="title">Aniversário da <span id="nomeAniversariante">Antônia</span></h1>
+      <p class="subtitle"><span id="idadeAniversariante">3</span> aninhos de muita fofura 🥰</p>
+    </header>
+
+    <div class="invite-body">
+      <p class="lede">
+        Olá! Tudo bem? Meu nome é <strong id="Cláudio">Cláudio</strong> e estou ajudando
+        a família da <span id="nomeAniversariante2">Antônia</span> na organização da comemoração dos seus
+        <span id="idadeAniversariante2">3</span> aninhos. 🥰
+      </p>
+      <p class="lede">
+        Ficaremos muito felizes em contar com a sua presença nesse dia tão especial!
+        Para organizarmos tudo com carinho — alimentação, lembrancinhas e demais
+        preparativos — pedimos a gentileza de confirmar a presença até
+        <strong id="prazoConfirmacao">18/07</strong>.
+      </p>
+
+      <dl class="details">
+        <div class="detail">
+          <dt>📅 Quando</dt>
+          <dd id="dataFesta">—</dd>
+        </div>
+        <div class="detail">
+          <dt>🕒 Horário</dt>
+          <dd id="horaFesta">—</dd>
+        </div>
+        <div class="detail">
+          <dt>📍 Onde</dt>
+          <dd id="localFesta">—</dd>
+        </div>
+      </dl>
+
+      <p class="lede small">
+        🍕🍟 Pedimos, por favor, que informe quantas pessoas da sua família estarão
+        presentes, para que possamos preparar tudo da melhor forma possível. ❤️🎉
+      </p>
+    </div>
+
+    <!-- RSVP FORM -->
+    <form class="rsvp-form" id="rsvpForm" novalidate>
+      <h2 class="form-title">Confirmar presença</h2>
+
+      <div class="field">
+        <label for="nome">Nome do responsável</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <span class="field-label">Vai comparecer?</span>
+        <div class="toggle-group" role="radiogroup" aria-label="Vai comparecer?">
+          <button type="button" class="toggle-btn" data-value="sim" id="btnSim">
+            <span class="emoji">✅</span> Sim, vou!
+          </button>
+          <button type="button" class="toggle-btn" data-value="nao" id="btnNao">
+            <span class="emoji">😔</span> Não vou poder
+          </button>
+        </div>
+        <input type="hidden" id="comparecera" name="comparecera">
+      </div>
+
+      <div class="counts" id="countsWrap">
+        <div class="field stepper-field">
+          <label for="adultos">Quantos adultos?</label>
+          <div class="stepper">
+            <button type="button" class="step-btn" data-target="adultos" data-delta="-1" aria-label="Diminuir adultos">−</button>
+            <input type="number" id="adultos" name="adultos" min="0" value="1" inputmode="numeric">
+            <button type="button" class="step-btn" data-target="adultos" data-delta="1" aria-label="Aumentar adultos">+</button>
+          </div>
+        </div>
+
+        <div class="field stepper-field">
+          <label for="criancas">Quantas crianças?</label>
+          <div class="stepper">
+            <button type="button" class="step-btn" data-target="criancas" data-delta="-1" aria-label="Diminuir crianças">−</button>
+            <input type="number" id="criancas" name="criancas" min="0" value="0" inputmode="numeric">
+            <button type="button" class="step-btn" data-target="criancas" data-delta="1" aria-label="Aumentar crianças">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="observacoes">Observações <span class="optional">(opcional)</span></label>
+        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Alguma restrição alimentar, alergia ou recado?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-label">Confirmar presença</span>
+        <span class="btn-spinner" hidden></span>
+      </button>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
