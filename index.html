@@ -11,6 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<noscript>
+  <style>
+    .envelope-wrap { display: none !important; }
+    .invite { opacity: 1 !important; pointer-events: auto !important; transform: none !important; }
+  </style>
+</noscript>
 </head>
 <body>
 
@@ -30,7 +36,7 @@
 <main class="stage">
 
   <!-- ENVELOPE INTRO -->
-  <section class="envelope-wrap" id="envelopeWrap">
+  <section class="envelope-wrap" id="envelopeWrap" role="button" tabindex="0" aria-label="Abrir convite">
     <div class="envelope" id="envelope">
       <div class="envelope-back"></div>
       <div class="envelope-flap"></div>
@@ -58,7 +64,7 @@
 
     <div class="invite-body">
       <p class="lede">
-        Olá! Tudo bem? Meu nome é <strong id="Cláudio">Cláudio</strong> e estou ajudando
+        Olá! Tudo bem? Meu nome é <strong id="nomeOrganizador">[Seu Nome]</strong> e estou ajudando
         a família da <span id="nomeAniversariante2">Antônia</span> na organização da comemoração dos seus
         <span id="idadeAniversariante2">3</span> aninhos. 🥰
       </p>
@@ -117,13 +123,13 @@
           <label for="adultos">Quantos adultos?</label>
           <div class="stepper">
             <button type="button" class="step-btn" data-target="adultos" data-delta="-1" aria-label="Diminuir adultos">−</button>
-            <input type="number" id="adultos" name="adultos" min="0" max="4" value="1" inputmode="numeric">
+            <input type="number" id="adultos" name="adultos" min="0" max="5" value="1" inputmode="numeric">
             <button type="button" class="step-btn" data-target="adultos" data-delta="1" aria-label="Aumentar adultos">+</button>
           </div>
         </div>
 
         <div class="field stepper-field">
-          <label for="criancas">Quantas crianças <b>menores de 10 anos</b>?</label>
+          <label for="criancas">Quantas crianças?</label>
           <div class="stepper">
             <button type="button" class="step-btn" data-target="criancas" data-delta="-1" aria-label="Diminuir crianças">−</button>
             <input type="number" id="criancas" name="criancas" min="0" value="0" inputmode="numeric">
