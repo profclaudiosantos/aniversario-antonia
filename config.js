@@ -6,10 +6,10 @@ const CONFIG = {
   // --- Dados do aniversário ---
   aniversariante: "Antônia",
   idade: "3",
-  organizador: "Seu Nome", // quem está organizando (aparece no texto do convite)
-  dataFesta: "Sábado, 26 de julho de 2026", // ajuste para a data real da festa
-  horaFesta: "15h",                          // ajuste para o horário real
-  localFesta: "Endereço do salão / casa aqui", // ajuste para o endereço real
+  organizador: Cláudio, // quem está organizando (aparece no texto do convite)
+  dataFesta: "Sexta, 31 de julho de 2026", // ajuste para a data real da festa
+  horaFesta: "18h",                          // ajuste para o horário real
+  localFesta: "Endereço", // ajuste para o endereço real
   linkLocalizacao: "https://maps.app.goo.gl/U3RyCdrEFL8vtBnm8", // opcional: cole aqui um link do Google Maps, ex: "https://maps.app.goo.gl/xxxxx"
   prazoConfirmacao: "18/07",
 
