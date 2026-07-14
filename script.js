@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const input = document.getElementById(targetId);
         const min = input.min !== "" ? Number(input.min) : 0;
         const max = input.max !== "" ? Number(input.max) : Infinity;
-        const next = Math.min(max, Math.max(min, (Number(input.value) || 0) + delta);
+        const next = Math.min(max, Math.max(min, (Number(input.value) || 0) + delta));
         input.value = next;
       });
     });
