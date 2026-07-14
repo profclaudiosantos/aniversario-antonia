@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetId = btn.dataset.target;
         const delta = Number(btn.dataset.delta);
         const input = document.getElementById(targetId);
-        const next = Math.max(0, (Number(input.value) || 0) + delta);
+        const min = input.min !== "" ? Number(input.min) : 0;
+        const max = input.max !== "" ? Number(input.max) : Infinity;
+        const next = Math.min(max, Math.max(min, (Number(input.value) || 0) + delta);
         input.value = next;
       });
     });
@@ -115,7 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
     [adultosInput, criancasInput].forEach((input) => {
       if (!input) return;
       input.addEventListener("change", () => {
-        if (input.value === "" || Number(input.value) < 0) input.value = 0;
+        const min = input.min !== "" ? Number(input.min) : 0;
+        const max = input.max !== "" ? Number(input.max) : Infinity;
+        let value = Number(input.value);
+        if (input.value === "" || Number.isNaN(value)) value = min;
+        input.value = Math.min(max, Math.max(min, value));
       });
     });
   } catch (err) {
