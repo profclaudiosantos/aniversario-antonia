@@ -102,27 +102,48 @@ document.addEventListener("DOMContentLoaded", () => {
      3. Steppers de adultos / crianças
   ------------------------------------------------------------ */
   try {
+    const clamp = (input) => {
+      const min = input.min !== "" ? Number(input.min) : 0;
+      const max = input.max !== "" ? Number(input.max) : Infinity;
+      let value = Number(input.value);
+      if (input.value === "" || Number.isNaN(value)) value = min;
+      value = Math.min(max, Math.max(min, value));
+      input.value = value;
+      return { value, min, max };
+    };
+
+    const updateStepButtons = (input) => {
+      const min = input.min !== "" ? Number(input.min) : 0;
+      const max = input.max !== "" ? Number(input.max) : Infinity;
+      const value = Number(input.value) || 0;
+      document.querySelectorAll(`.step-btn[data-target="${input.id}"]`).forEach((btn) => {
+        const delta = Number(btn.dataset.delta);
+        btn.disabled = delta > 0 ? value >= max : value <= min;
+      });
+    };
+
     document.querySelectorAll(".step-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const targetId = btn.dataset.target;
+        const input = document.getElementById(btn.dataset.target);
         const delta = Number(btn.dataset.delta);
-        const input = document.getElementById(targetId);
         const min = input.min !== "" ? Number(input.min) : 0;
         const max = input.max !== "" ? Number(input.max) : Infinity;
-        const next = Math.min(max, Math.max(min, (Number(input.value) || 0) + delta));
-        input.value = next;
+        input.value = Math.min(max, Math.max(min, (Number(input.value) || 0) + delta));
+        updateStepButtons(input);
       });
     });
 
     [adultosInput, criancasInput].forEach((input) => {
       if (!input) return;
-      input.addEventListener("change", () => {
-        const min = input.min !== "" ? Number(input.min) : 0;
-        const max = input.max !== "" ? Number(input.max) : Infinity;
-        let value = Number(input.value);
-        if (input.value === "" || Number.isNaN(value)) value = min;
-        input.value = Math.min(max, Math.max(min, value));
+      input.addEventListener("input", () => {
+        clamp(input);
+        updateStepButtons(input);
       });
+      input.addEventListener("change", () => {
+        clamp(input);
+        updateStepButtons(input);
+      });
+      updateStepButtons(input);
     });
   } catch (err) {
     console.error("Erro ao configurar os contadores:", err);
