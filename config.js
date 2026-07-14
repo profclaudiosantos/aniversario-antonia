@@ -6,7 +6,7 @@ const CONFIG = {
   // --- Dados do aniversário ---
   aniversariante: "Antônia",
   idade: "3",
-  organizador: Cláudio, // quem está organizando (aparece no texto do convite)
+  organizador: "Cláudio", // quem está organizando (aparece no texto do convite)
   dataFesta: "Sexta, 31 de julho de 2026", // ajuste para a data real da festa
   horaFesta: "18h",                          // ajuste para o horário real
   localFesta: "Endereço:Rua João Monlevade, 535 - Jardim Leblon - BH", // ajuste para o endereço real
